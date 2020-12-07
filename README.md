@@ -1,3 +1,25 @@
+# MyQuickPick
+### Lottery Number Generator
+
+### This project is for people who would rather insert a specific set of numbers that generates and outputs random numbers closely relating to the numbers
+### the user inputed. This narrows down the random numbers generated from what the purchaser wants rather than leaving it up to the numbers bought at stores, gas ### stations, etc. 
+
+#### Table of Contents
+
+- Keno 20 number input 
+
+- Pick 3 number input 
+
+- Match 4 number input
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

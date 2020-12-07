@@ -1,0 +1,95 @@
+#keno-form{
+    margin: auto;
+    margin-top: 25px;
+    width: 300px;
+    height: 240px;
+
+}
+
+
+#keno-title {
+    background-color: rgba(255, 255, 255, 0.858);
+    border-radius: 3px;
+    color: rgb(251, 153, 43);
+    display: block;
+    font-size: 3em;
+    width: auto;
+    max-width: 250px;
+    margin: auto;
+    margin: auto auto 10px auto;
+}
+
+#keno{
+    height: auto;
+    margin: auto;
+    min-height: 100%;
+
+}
+
+#kenoRows{
+    margin: auto;
+    margin-top: 25px;
+    width: 425px;
+    height: auto;
+    padding-bottom: 100px;
+}
+
+// form{
+//     margin: auto;
+//     margin-top: 25px;
+//     width: 300px;
+//     height: 240px;
+//     padding-bottom: 100px;
+// }
+
+input{
+    font-size: 2em;
+    width: 55px;
+    height: 55px;
+    text-align: center;
+    margin-top: 5px;
+    margin-top: 5px;
+    margin: 5px 2px 0px 2px;
+    border: 1px solid black;
+    justify-content: center;
+}
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+
+button{
+    width: 60px;
+    height: 44px;
+    border-radius: 7px;
+    margin: 10px 5px 10px 5px;
+}
+
+ol{
+    padding: 0;
+    margin: auto;
+    max-width: 400px;
+
+}
+
+ol > .answer-list{
+    display: inline-block;
+    height: 70px;
+    width: 75px;
+    margin: auto;
+    border: 1px solid black;
+    padding: 10px;
+    font-size: 2em;
+    background-color: #f2f6f5;
+    opacity: 70%;
+}
+
+#top-bottom{
+    height: 200px;
+}
+
+#topButton{
+    padding: 25px;
+    margin: 50px;
+}

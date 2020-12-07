@@ -1,0 +1,42 @@
+
+#match{
+    height: auto;
+    margin: auto;
+    min-height: 100%;
+
+}
+
+#match-title {
+    background-color: rgba(255, 255, 255, 0.858);
+    border-radius: 3px;
+    color: rgb(1, 146, 213);
+    display: block;
+    font-size: 3em;
+    width: auto;
+    max-width: 250px;
+    margin: auto;
+    margin: auto auto 10px auto;
+}
+
+#matchRows{
+    margin: auto;
+    margin-top: 25px;
+    width: 425px;
+    height: auto;
+    padding-bottom: 100px;
+}
+
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+
+#matchOl{
+    padding: 0;
+    margin: auto;
+    max-width: 300px;
+    text-align: center;
+
+}
+
