@@ -1,0 +1,56 @@
+*{
+    box-sizing: border-box;
+ }
+ 
+ html{
+   min-width: 100%;
+   /* min-height: max-content; */
+   height: 100%;
+ }
+ body{
+   color: #056676;
+   font-family: sans-serif;
+
+   margin: auto;
+   height: 100%;
+   width: 100%;
+   text-align: center;
+ }
+ 
+ 
+ 
+ main{
+
+   max-width: 100%;
+   background-image: url('./images/mansion.jpg');
+   background-repeat: repeat;
+   background-attachment: fixed;
+   background-position: center;
+   background-size: cover;
+   height: auto;
+   min-height: 100%;
+   text-align: center;
+ }
+ 
+ /* #home-container {
+   color: black;
+   background-color: white;
+   width: 600px;
+   border-radius: 10px;
+   margin: auto;
+   margin-top: 100px;
+ } */
+ 
+
+ 
+ button:hover{
+   color: #e3fbec;
+   background-color: rgb(92, 91, 91);
+   transform: scale(1.1);
+   box-shadow: 0px 0px 8px rgb(115, 161, 175);
+ }
+ 
+ .all-sections{
+   margin-top: 50px;
+ }
+ 
