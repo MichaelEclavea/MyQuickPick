@@ -1,0 +1,29 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 24px;
+  height: 64px;
+  width: 100%;
+
+  .title {
+    font-family: "Lobster", sans-serif;
+    letter-spacing: 2px;
+    transition: all 0.1s ease-in-out;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+      color: rgb(241, 241, 241);
+    }
+  }
+}
+
+
+.farItems {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+  height: 100%;
+}

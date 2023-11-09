@@ -1,0 +1,90 @@
+.root {
+  box-sizing: border-box;
+  display: flex;
+  gap: 24px;
+  height: 100%;
+  padding: 24px;
+  width: 100%;
+  overflow: hidden;
+  max-height: calc(100vh - 64px); // 64px is the height of the navbar
+  background-image: url("../../../public/images/mansion.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 16px;
+
+  h2 {
+    font-family: "Lobster", sans-serif;
+    font-size: 3rem;
+    letter-spacing: 6px;
+    height: 30px;
+  }
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 24px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.titleCardRoot {
+  height: 140px;
+}
+
+.prizeCardRoot {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.cardContentRoot {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+  color: white;
+  text-align: start;
+  width: 100%;
+}
+
+.resultsCardRoot {
+  .cardResultRoot {
+    @extend .cardContentRoot;
+    width: 100%;
+    height: 100%;
+
+    .titleWrapper {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .resultsWrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 8px;
+      flex: 1;
+      overflow-y: auto;
+    }
+  }
+}
+
+.providerWrapper {
+  background: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
