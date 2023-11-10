@@ -1,25 +1,107 @@
 import React, { useState } from "react";
+import OpenAI from "openai";
 import {
   Body1,
   Button,
   Display,
   FluentProvider,
+  Input,
+  Label,
   LargeTitle,
   Spinner,
   Title1,
   Title3,
   webLightTheme,
 } from "@fluentui/react-components";
-import { BrainCircuit20Regular } from "@fluentui/react-icons";
+import { BrainCircuit20Regular, Broom20Regular } from "@fluentui/react-icons";
 import { randomNumberGenerator } from "../../utils/randomNumberGenerator";
-import { requestFromApi } from "../../utils/api/generate";
 import Card from "../../components/card/Card";
 import ResultBar from "../../components/resultBar/ResultBar";
 import styles from "./GameScreen.module.scss";
 
+const getGameLink = (game) => {
+  switch (game) {
+    case "pick3":
+      return "https://walottery.com/WinningNumbers/PastDrawings.aspx?gamename=pick3&unittype=year&unitcount=2023";
+    case "match4":
+      return "https://walottery.com/WinningNumbers/PastDrawings.aspx?gamename=match4&unittype=year&unitcount=2023";
+    case "hit5":
+      return "https://walottery.com/WinningNumbers/PastDrawings.aspx?gamename=hit5&unittype=year&unitcount=2023";
+    case "keno":
+      return "https://walottery.com/WinningNumbers/PastDrawings.aspx?gamename=dailykeno&unittype=year&unitcount=2023";
+    case "cashPop":
+      return "https://walottery.com/WinningNumbers/PastDrawings.aspx?gamename=cashpop&unittype=year&unitcount=2023";
+    case "lotto":
+      return "https://walottery.com/WinningNumbers/PastDrawings.aspx?gamename=lotto&unittype=year&unitcount=2023";
+    default:
+      return "";
+  }
+};
+
+const getGamePrompt = (game) => {
+  const link = getGameLink(game.name);
+  return `Select ${game.resultNumCount} numbers between ${game.min} and ${
+    game.max
+  } that will most likely be correct base on the previous winning data found ${link}, the numbers ${
+    game.min === 0 ? "can" : "cannot"
+  } be repeated`;
+};
+
 const GameScreen = ({ selectedGame }) => {
   const [results, setResults] = useState([]);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [apiKey, setApiKey] = useState("");
+  const [isApiKeySaved, setIsApiKeySaved] = useState(false);
+
+  const requestFromApi = async (nameOfGame) => {
+    try {
+      const gamePrompt = getGamePrompt(nameOfGame);
+      if (!apiKey) {
+        clearApiKey();
+        throw new Error("Please enter your OpenAI API Key");
+      }
+
+      const openai = new OpenAI({
+        apiKey: apiKey,
+        dangerouslyAllowBrowser: true,
+      });
+
+      const response = await openai.chat.completions.create({
+        messages: [
+          {
+            role: "system",
+            content:
+              "You are a helpful assistant/data analysis that only gives the exact answer when asked a question. Your job is to give an educated guess on what the days winning numbers will be based on the lottery's previous winning numbers found on their website. For every answer, you give a one sentence response on why you chose that answer. Your response should be an Javascript Object with the key 'reason' for your short reason why you made that guess and another key 'numbers' for the numbers you chose and it should be in an Javascript array.",
+          },
+          { role: "user", content: gamePrompt },
+        ],
+        model: "gpt-3.5-turbo",
+      });
+      console.log("response", response.choices[0].message.content);
+      const parsedResponse = JSON.parse(response.choices[0].message.content);
+      // console.log("parsedResponse", parsedResponse);
+      // return response.choices[0].message.content;
+      return parsedResponse;
+    } catch (error) {
+      if (
+        error.code === 401 ||
+        error.status === 401 ||
+        error.message === "Please enter your OpenAI API Key"
+      ) {
+        clearApiKey();
+      }
+      alert(error.message);
+    }
+  };
+
+  const clearApiKey = () => {
+    setApiKey("");
+    setIsApiKeySaved(false);
+  };
+
+  const handleInputChange = (ev, data) => {
+    setApiKey(data.value);
+  };
 
   const handleRandomGenerate = () => {
     let resultArray = randomNumberGenerator(
@@ -76,27 +158,60 @@ const GameScreen = ({ selectedGame }) => {
         <div className={styles.cardContentRoot}>
           <Title3>AI Generated</Title3>
           <Body1>
-            Generate a random set of numbers based on the most common numbers
-            drawn for this game.
+            Generate your chosen games winning numbers through the power of AI.
+            AI will evaluate the previous winning numbers throughout the current
+            year and give you the most likely outcome of numbers to win.
           </Body1>
-          <FluentProvider
-            theme={webLightTheme}
-            className={styles.providerWrapper}
-          >
-            {isProcessing ? (
-              <Button>
-                <Spinner size="tiny" label={"Processing..."} />
-              </Button>
-            ) : (
-              <Button
-                appearance="default"
-                onClick={handleAiGenerate}
-                icon={<BrainCircuit20Regular />}
-              >
-                AI-Generate
-              </Button>
-            )}
-          </FluentProvider>
+
+          {!isApiKeySaved ? (
+            <>
+              <div className={styles.inputWrapper}>
+                <Label>OpenAi API Key:</Label>
+                <Input
+                  onChange={handleInputChange}
+                  size={"small"}
+                  placeholder={apiKey ? apiKey : "Enter your key..."}
+                />
+              </div>
+              {apiKey.length > 12 && (
+                <Button
+                  appearance="default"
+                  onClick={() => setIsApiKeySaved(true)}
+                  disabled={!apiKey}
+                >
+                  Save key
+                </Button>
+              )}
+            </>
+          ) : (
+            <FluentProvider
+              theme={webLightTheme}
+              className={styles.providerWrapper}
+            >
+              {isProcessing ? (
+                <Button>
+                  <Spinner size="tiny" label={"Processing..."} />
+                </Button>
+              ) : (
+                <div className={styles.aiButtonWrapper}>
+                  <Button
+                    appearance="default"
+                    onClick={handleAiGenerate}
+                    icon={<BrainCircuit20Regular />}
+                  >
+                    AI-Generate
+                  </Button>
+                  <Button
+                    appearance="primary"
+                    onClick={clearApiKey}
+                    icon={<Broom20Regular />}
+                  >
+                    Clear Key
+                  </Button>
+                </div>
+              )}
+            </FluentProvider>
+          )}
         </div>
       }
     />
@@ -130,7 +245,7 @@ const GameScreen = ({ selectedGame }) => {
       <Card
         style={{
           backgroundColor: selectedGame.color,
-          width: 'clamp(0%, 50%, 100%)'
+          width: "clamp(0%, 50%, 100%)",
         }}
         content={
           <div className={styles.cardContentRoot}>

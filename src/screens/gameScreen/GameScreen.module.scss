@@ -12,6 +12,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 16px;
+  border: 2px solid blue;
 
   h2 {
     font-family: "Lobster", sans-serif;
@@ -83,8 +84,23 @@
 }
 
 .providerWrapper {
-  background: none;
+  background-color: transparent !important;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  width: 100%;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 6px;
+  width: 350px;
+}
+
+.aiButtonWrapper {
+  display: flex;
+  column-gap: 8px;
+  justify-content: space-between;
+  width: 100%;
 }
