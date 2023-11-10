@@ -7,7 +7,7 @@
   width: 100%;
   overflow: hidden;
   max-height: calc(100vh - 64px); // 64px is the height of the navbar
-  background-image: url("../../../public/images/mansion.jpg");
+  background-image: url('../../../public/images/mansion.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -15,7 +15,7 @@
   border: 2px solid blue;
 
   h2 {
-    font-family: "Lobster", sans-serif;
+    font-family: 'Lobster', sans-serif;
     font-size: 3rem;
     letter-spacing: 6px;
     height: 30px;
@@ -88,19 +88,5 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  width: 100%;
-}
-
-.inputWrapper {
-  display: flex;
-  flex-direction: column;
-  row-gap: 6px;
-  width: 350px;
-}
-
-.aiButtonWrapper {
-  display: flex;
-  column-gap: 8px;
-  justify-content: space-between;
   width: 100%;
 }
