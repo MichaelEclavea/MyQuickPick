@@ -26,3 +26,33 @@
     outline: 1px solid whitesmoke;
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  .root {
+    width: 220px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .root {
+    width: 30px;
+    overflow-y: auto;
+    flex-grow: 1;
+  }
+
+  .gameButton {
+    outline-offset: -2px;
+    height: auto;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 4px;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+
+    &:hover {
+      color: rgb(236, 236, 236);
+    }
+  }
+}

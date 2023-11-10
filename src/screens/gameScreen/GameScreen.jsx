@@ -63,7 +63,7 @@ const GameScreen = ({ selectedGame }) => {
     <Card
       className={styles.titleCardRoot}
       content={
-        <Display style={{ color: selectedGame.color }}>
+        <Display className={styles.displayText} style={{ color: selectedGame.color }}>
           {selectedGame.name}
         </Display>
       }
@@ -74,8 +74,8 @@ const GameScreen = ({ selectedGame }) => {
     <Card
       content={
         <div className={styles.cardContentRoot}>
-          <Title3>AI Generated</Title3>
-          <Body1>
+          <Title3 className={styles.title3}>AI Generated</Title3>
+          <Body1 className={styles.body1}>
             Generate your winning numbers through the power of AI.
             AI will evaluate the previous winning numbers throughout the current
             year and give you its best estimate and a reason why it chose those numbers.
@@ -94,7 +94,7 @@ const GameScreen = ({ selectedGame }) => {
                 onClick={handleAiGenerate}
                 icon={<BrainCircuit20Regular />}
               >
-                AI-Generate
+                Generate
               </Button>
             )}
           </FluentProvider>
@@ -107,8 +107,8 @@ const GameScreen = ({ selectedGame }) => {
     <Card
       content={
         <div className={styles.cardContentRoot}>
-          <Title3>Random Generated</Title3>
-          <Body1>Generate a random set of numbers.</Body1>
+          <Title3 className={styles.title3}>Random Generated</Title3>
+          <Body1 className={styles.body1}>Generate a random set of numbers.</Body1>
           <FluentProvider
             theme={webLightTheme}
             className={styles.providerWrapper}
@@ -131,13 +131,14 @@ const GameScreen = ({ selectedGame }) => {
       <Card
         style={{
           backgroundColor: selectedGame.color,
-          width: '70%',
-          minWidth: 'fit-content'
+          // width: '70%',
+          // minWidth: 'fit-content'
         }}
+        className={styles.prizeCardRoot}
         content={
           <div className={styles.cardContentRoot}>
-            <Title1>Top Prize</Title1>
-            <LargeTitle>{selectedGame.win}</LargeTitle>
+            <Title1 className={styles.title1}>Top Prize</Title1>
+            <LargeTitle className={styles.title1}>{selectedGame.win}</LargeTitle>
           </div>
         }
       />
@@ -152,7 +153,7 @@ const GameScreen = ({ selectedGame }) => {
           <div className={styles.titleWrapper}>
             {!!results.length ? (
               <>
-                <Title3>Generated Numbers</Title3>
+                <Title3 className={styles.title3}>Generated Numbers</Title3>
                 <div>
                   <Button size="small" onClick={handleClearResults}>
                     Clear list
@@ -160,7 +161,7 @@ const GameScreen = ({ selectedGame }) => {
                 </div>
               </>
             ) : (
-              <Title3>Results will show here...</Title3>
+              <Title3 className={styles.title3}>Results will show here...</Title3>
             )}
           </div>
           <div className={styles.resultsWrapper}>
