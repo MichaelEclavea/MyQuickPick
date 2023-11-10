@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { FluentProvider, webDarkTheme } from "@fluentui/react-components";
 import GameScreen from "./screens/gameScreen/GameScreen";
 import Navbar from "./components/navbar/Navbar";
 import Pane from "./components/pane/Pane";
 import styles from "./App.module.scss";
-import { FluentProvider, webDarkTheme } from "@fluentui/react-components";
 
 function App() {
   const [selectedGame, setSelectedGame] = useState(null);
