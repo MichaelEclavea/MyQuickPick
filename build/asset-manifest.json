@@ -1,20 +1,14 @@
 {
   "files": {
-    "main.css": "/MyQuickPick/static/css/main.914b0bc3.chunk.css",
-    "main.js": "/MyQuickPick/static/js/main.bad8942a.chunk.js",
-    "main.js.map": "/MyQuickPick/static/js/main.bad8942a.chunk.js.map",
-    "runtime-main.js": "/MyQuickPick/static/js/runtime-main.711ec55f.js",
-    "runtime-main.js.map": "/MyQuickPick/static/js/runtime-main.711ec55f.js.map",
-    "static/js/2.b0be35ca.chunk.js": "/MyQuickPick/static/js/2.b0be35ca.chunk.js",
-    "static/js/2.b0be35ca.chunk.js.map": "/MyQuickPick/static/js/2.b0be35ca.chunk.js.map",
+    "main.css": "/MyQuickPick/static/css/main.518cbc08.css",
+    "main.js": "/MyQuickPick/static/js/main.f4510f93.js",
+    "static/media/mansion.jpg": "/MyQuickPick/static/media/mansion.0eb2d9791e3473c29692.jpg",
     "index.html": "/MyQuickPick/index.html",
-    "static/css/main.914b0bc3.chunk.css.map": "/MyQuickPick/static/css/main.914b0bc3.chunk.css.map",
-    "static/js/2.b0be35ca.chunk.js.LICENSE.txt": "/MyQuickPick/static/js/2.b0be35ca.chunk.js.LICENSE.txt"
+    "main.518cbc08.css.map": "/MyQuickPick/static/css/main.518cbc08.css.map",
+    "main.f4510f93.js.map": "/MyQuickPick/static/js/main.f4510f93.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.711ec55f.js",
-    "static/js/2.b0be35ca.chunk.js",
-    "static/css/main.914b0bc3.chunk.css",
-    "static/js/main.bad8942a.chunk.js"
+    "static/css/main.518cbc08.css",
+    "static/js/main.f4510f93.js"
   ]
 }
