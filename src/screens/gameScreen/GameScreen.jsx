@@ -130,7 +130,8 @@ const GameScreen = ({ selectedGame }) => {
       <Card
         style={{
           backgroundColor: selectedGame.color,
-          width: 'clamp(0%, 50%, 100%)'
+          width: '70%',
+          minWidth: 'fit-content'
         }}
         content={
           <div className={styles.cardContentRoot}>
